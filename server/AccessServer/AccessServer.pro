@@ -8,28 +8,19 @@ TARGET = AccessServer
 CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
+
 unix {
     include(../../qextserialport/src/qextserialport.pri)
     INCLUDEPATH += ../../ASCIIProtocol
 }
-
 win32 {
     INCLUDEPATH += C:\Qt\QExtSerial\src
     LIBS += -LC:\Qt\QExtSerial\src\build\
 }
+
 SOURCES += main.cpp \
     busmngr.cpp \
     ../../ASCIIProtocol/ASCIIProtocol.cpp
 
 HEADERS += busmngr.h \
     ../../ASCIIProtocol/ASCIIProtocol.h
-
-#unix {
-#CONFIG(debug, debug|release):LIBS += -lqextserialportd
-#else:LIBS  += -lqextserialport
-#}
-
-win32 {
-CONFIG(debug, debug|release):LIBS += -lqextserialportd1
-else:LIBS  += -lqextserialport1
-}
