@@ -40,8 +40,7 @@ BusMngr::BusMngr(QString comPort):
 
     if (settings.status() != QSettings::NoError)
     {
-        int f;
-        f = 1;
+
     }
     QVariant addrV = settings.value("doorAddresses", "1");
     QStringList addrs = addrV.toStringList();

@@ -9,24 +9,25 @@ CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
 unix {
-INCLUDEPATH += /home/royce/QExtSerial/src
-LIBS += -L'/home/royce/QExtSerial/src/build/'
+    include(../../qextserialport/src/qextserialport.pri)
+    INCLUDEPATH += ../../ASCIIProtocol
 }
+
 win32 {
-INCLUDEPATH += C:\Qt\QExtSerial\src
-LIBS += -LC:\Qt\QExtSerial\src\build\
+    INCLUDEPATH += C:\Qt\QExtSerial\src
+    LIBS += -LC:\Qt\QExtSerial\src\build\
 }
 SOURCES += main.cpp \
     busmngr.cpp \
-    ASCIIProtocol.cpp
+    ../../ASCIIProtocol/ASCIIProtocol.cpp
 
 HEADERS += busmngr.h \
-    ASCIIProtocol.h
+    ../../ASCIIProtocol/ASCIIProtocol.h
 
-unix {
-CONFIG(debug, debug|release):LIBS += -lqextserialportd
-else:LIBS  += -lqextserialport
-}
+#unix {
+#CONFIG(debug, debug|release):LIBS += -lqextserialportd
+#else:LIBS  += -lqextserialport
+#}
 
 win32 {
 CONFIG(debug, debug|release):LIBS += -lqextserialportd1
