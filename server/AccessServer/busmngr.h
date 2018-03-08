@@ -10,7 +10,7 @@
 #include <QTime>
 #include <QWaitCondition>
 #include <QMutex>
-#include "ASCIIProtocol.h"
+#include "../../ASCIIProtocol/ASCIIProtocol.h"
 #include <QSqlDatabase>
 
 struct AuthReply
